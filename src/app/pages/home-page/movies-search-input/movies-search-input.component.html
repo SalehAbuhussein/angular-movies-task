@@ -1,0 +1,7 @@
+<div class="search-input-wrapper">
+  <input [(ngModel)]="inputValue" (input)="onInputChange($event)" [value]="inputValue" type="text" placeholder="Search movie..." />
+  @if (inputValue) {
+    <button (click)="onInputClear()">X</button>
+    <app-search-result appClickOutside (clickOutside)="onOutsideComponentClick()" />
+  }
+</div>
