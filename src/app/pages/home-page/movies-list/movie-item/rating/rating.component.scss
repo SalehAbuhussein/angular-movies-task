@@ -1,0 +1,28 @@
+.rating-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 45px;
+  aspect-ratio: 1 / 1;
+  font-size: 14px;
+  color: black;
+  font-weight: 700;
+  background-image: conic-gradient(
+    var(--progressbar-color, #000) var(--progress, 0%), 
+    transparent 0%
+  );
+
+  &::after {
+    color: #fff;
+    font-weight: 700;
+    content: attr(aria-valuenow);
+    background-color: #111;
+    border-radius: inherit;
+    width: calc(100% - 8px);
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+  }
+}

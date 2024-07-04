@@ -1,13 +1,13 @@
 .movie-item-wrapper {
+  position: relative;
   width: 300px;
-  // app-rating {
-  //   position: absolute;
-  //   inset-inline-start: -4px;
-  //   top: -4px;
-  // }
+  app-rating {
+    position: absolute;
+    inset-inline-start: -8px;
+    top: -5px;
+  }
   
   .item-img-wrapper {
-    position: relative;
     margin-bottom: 4px;
 
     img {

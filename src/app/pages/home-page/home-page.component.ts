@@ -11,13 +11,19 @@ import { Movie } from '../../shared/models/movie.model';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
+  movies: Movie[] = [];
+  
   moviesService = inject(MoviesService);
 
-  movie: Movie[] = [];
-  
+  /**
+   * Angular OnInit lifecycle
+   * 
+   */
   ngOnInit(): void {
     this.moviesService.getMovie(400).subscribe(movie => {
-      this.movie = movie
+      console.log(movie);
+      
+      this.movies = movie
     })
   }
 }

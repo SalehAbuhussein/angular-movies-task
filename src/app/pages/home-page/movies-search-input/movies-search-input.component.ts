@@ -25,6 +25,10 @@ export class MoviesSearchInputComponent {
     this.inputValue = '';
   }
 
+  /**
+   * Clear input on clicking outside the component
+   * 
+   */
   onOutsideComponentClick() {
     this.onInputClear();
   }

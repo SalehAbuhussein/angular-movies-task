@@ -1,1 +1,5 @@
-<p>movies-list works!</p>
+<div class="movies-list-wrapper">
+  @for (item of movies; track item.id) {
+    <app-movie-item [movie]="item" />
+  }
+</div>

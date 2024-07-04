@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { Movie, MoviesResponse } from '../models/movie.model';
 
 @Injectable({
@@ -20,8 +20,8 @@ export class MoviesService {
    * @returns {Observable<Movie[]>}
    */
   getMovie(id: number): Observable<Movie[]> {
-    return this._http.get<Movie[]>(`${this._baseUrl}/movie/${id}`).pipe(
-      map(movie => [...movie]),
+    return this._http.get<Movie>(`${this._baseUrl}/movie/${id}`).pipe(
+      map(movie => [movie]),
       catchError(err => of([])),
     );
   }

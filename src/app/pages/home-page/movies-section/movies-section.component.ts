@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { Movie } from '../../../shared/models/movie.model';
-import { MovieItemComponent } from '../movies-list/movie-item/movie-item.component';
+import { MoviesListComponent } from '../movies-list/movies-list.component';
 
 @Component({
   selector: 'app-movies-section',
   standalone: true,
-  imports: [MovieItemComponent],
+  imports: [MoviesListComponent],
   templateUrl: './movies-section.component.html',
   styleUrl: './movies-section.component.scss'
 })
 export class MoviesSectionComponent {
-  @Input({required: true}) movie!: Movie[];
+  @Input({required: true}) movies!: Movie[];
   @Input({required: true}) title!: string;
-  @Input({required: true}) titleIcon!: string;
+  @Input({required: true}) titleIcon!: 'star.svg' | 'fire.svg';
 }

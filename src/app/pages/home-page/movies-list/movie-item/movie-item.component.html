@@ -1,14 +1,11 @@
 <div class="movie-item-wrapper">
     <div class="item-img-wrapper">
       <img src="https://placehold.co/600x400" alt="">
-      
+      <app-rating [rating]="movie.vote_average * 10" />
     </div>
 
     <div class="movie-info">
-        <div class="movie-title">Freelance</div>
-        <div class="movie-date">Oct 05, 2023</div>
+        <div class="movie-title">{{ movie.title }}</div>
+        <div class="movie-date">{{ movie.release_date }}</div>
     </div>
 </div>
-
-
-<app-rating />

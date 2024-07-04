@@ -1,11 +1,11 @@
 <div class="movies-section-wrapper">
     <div class="section-header">
       <div class="header-icon">
-        <img src="/assets/icons/star.svg" />
+        <img [src]="'/assets/icons/' + titleIcon"  />
       </div>
-      <p class="header-title">Popular</p>
+      <p class="header-title">{{ title }}</p>
     </div>
     <div class="section-body">
-      <app-movie-item />
+        <app-movies-list [movies]="movies" />
     </div>
 </div>
