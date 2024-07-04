@@ -1,0 +1,28 @@
+.movie-item-wrapper {
+  width: 300px;
+  // app-rating {
+  //   position: absolute;
+  //   inset-inline-start: -4px;
+  //   top: -4px;
+  // }
+  
+  .item-img-wrapper {
+    position: relative;
+    margin-bottom: 4px;
+
+    img {
+      width: 100%;
+      border-radius: 14px
+    };
+  }
+
+  .movie-info {
+    .movie-title {
+      margin-bottom: 8px;
+    }
+
+    .movie-date {
+      color: gray;
+    }
+  }
+}

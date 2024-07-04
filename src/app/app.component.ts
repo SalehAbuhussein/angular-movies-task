@@ -1,7 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/layout/header/header.component';
-import { MoviesService } from './shared/services/movies.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +9,6 @@ import { MoviesService } from './shared/services/movies.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'angular-movies-task';
-
-  moviesService = inject(MoviesService);
-
-  ngOnInit(): void {
-    this.moviesService.getPopularMovies().subscribe(value => {
-      console.log(value);
-      
-    });
-  }
 }

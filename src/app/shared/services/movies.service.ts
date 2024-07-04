@@ -9,6 +9,7 @@ import { Movie, MoviesResponse } from '../models/movie.model';
 export class MoviesService {
   private _http = inject(HttpClient);
   private _baseUrl = `https://api.themoviedb.org/3`;
+  imgUrl = 'https://image.tmdb.org/t/p/original';
 
   constructor() { }
 
