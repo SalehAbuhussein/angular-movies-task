@@ -1,4 +1,6 @@
 .movies-section-wrapper {
+  position: relative;
+
   .section-header {
     display: flex;
     align-items: center;
@@ -21,4 +23,18 @@
     }
   }
 
+  .section-body {
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 100%;
+      width: 50px;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      inset-inline-end: 0;
+      background-image: linear-gradient(270deg, #282828 0%, rgb(40, 40, 40) 15%, transparent 100%);
+    }
+  }
 }

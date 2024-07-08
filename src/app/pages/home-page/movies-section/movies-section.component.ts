@@ -13,4 +13,5 @@ export class MoviesSectionComponent {
   @Input({required: true}) movies!: Movie[];
   @Input({required: true}) title!: string;
   @Input({required: true}) titleIcon!: 'star.svg' | 'fire.svg';
+  @Input({required: true}) nextClass = '';
 }

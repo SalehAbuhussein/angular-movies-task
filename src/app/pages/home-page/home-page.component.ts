@@ -11,7 +11,8 @@ import { Movie } from '../../shared/models/movie.model';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-  movies: Movie[] = [];
+  popularMovies: Movie[] = [];
+  topRatedMovies: Movie[] = [];
   
   moviesService = inject(MoviesService);
 
@@ -20,10 +21,12 @@ export class HomePageComponent implements OnInit {
    * 
    */
   ngOnInit(): void {
-    this.moviesService.getMovie(400).subscribe(movie => {
-      console.log(movie);
-      
-      this.movies = movie
+    this.moviesService.getPopularMovies().subscribe(movies => {
+      this.popularMovies = movies
+    });
+
+    this.moviesService.getTopRatedMovies().subscribe(movies => {
+      this.topRatedMovies = movies;
     })
   }
 }

@@ -1,5 +1,11 @@
-<div class="movies-list-wrapper">
+<swiper-container #swiper init="false">
   @for (item of movies; track item.id) {
-    <app-movie-item [movie]="item" />
+    <swiper-slide>
+      <app-movie-item [movie]="item" />
+    </swiper-slide>
   }
+</swiper-container>
+
+<div [class]="nextClass + ' nextEl'">
+  <img src="/assets/icons/arrow.svg" alt="">
 </div>

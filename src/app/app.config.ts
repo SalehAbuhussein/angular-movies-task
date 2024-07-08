@@ -4,6 +4,9 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './shared/interceptors/auth.interceptor';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 export const appConfig: ApplicationConfig = {
   providers: [

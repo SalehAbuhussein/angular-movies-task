@@ -1,7 +1,7 @@
 <div class="movie-item-wrapper">
     <div class="item-img-wrapper">
-      <img src="https://placehold.co/600x400" alt="">
-      <app-rating [rating]="movie.vote_average * 10" />
+      <img [src]="moviesService.imgUrl + '/' + movie.poster_path" alt="">
+      <app-rating [rating]="(movie.vote_average * 10)" />
     </div>
 
     <div class="movie-info">

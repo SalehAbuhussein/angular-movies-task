@@ -1,0 +1,23 @@
+.nextEl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset-inline-end: 0;
+  top: 50%;
+  transform: translateY(calc(-50% - 25px));
+  z-index: 10;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  padding: 16px;
+  user-select: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+swiper-slide {
+  padding: 10px;
+}
