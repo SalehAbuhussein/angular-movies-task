@@ -9,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
   @Input({required: true}) rating = 0;
+  @Input() width = 45;
+  @Input() height = 45;
   ratingPercentage = '';
   color = '';
 

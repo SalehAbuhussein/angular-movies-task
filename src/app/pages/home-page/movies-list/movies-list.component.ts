@@ -19,7 +19,7 @@ export class MoviesListComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const swiperConfig: SwiperOptions = {
-      slidesPerView: 4,
+      slidesPerView: 8,
       spaceBetween: 20,
       pagination: false,
       navigation: {

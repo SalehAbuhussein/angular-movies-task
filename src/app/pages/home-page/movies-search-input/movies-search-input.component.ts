@@ -1,7 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ClickOutsideDirective } from '../../../shared/directives/click-outside.directive';
+import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
+import { MovieSearchResult } from '../../../shared/models/movie.model';
+import { MoviesService } from '../../../shared/services/movies.service';
 
 @Component({
   selector: 'app-movies-search-input',
@@ -10,11 +13,45 @@ import { ClickOutsideDirective } from '../../../shared/directives/click-outside.
   templateUrl: './movies-search-input.component.html',
   styleUrl: './movies-search-input.component.scss'
 })
-export class MoviesSearchInputComponent {
+export class MoviesSearchInputComponent implements OnInit, OnDestroy {
   @Input() inputValue = '';
+  destroy$ = new Subject<void>;
+  searchText$ = new Subject<string>;
+  searchResults: MovieSearchResult[] = [];
 
+  moviesService = inject(MoviesService);
+
+  /**
+   * Angular onInit lifecycle method
+   * 
+   */
+  ngOnInit(): void {
+    this.initalizeComponent();
+  }
+
+  /**
+   * Initialize necessary logic for component to work
+   * 
+   */
+  initalizeComponent() {
+    this.searchText$.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      switchMap(searchText => this.moviesService.getMoviesByKeyword(searchText))
+    ).subscribe(value => {
+      console.log(value);
+      this.searchResults = value;
+    })
+  }
+
+  /**
+   * Listen to input change event and
+   * emit the value that comes from input
+   * 
+   * @param {Event} event 
+   */
   onInputChange(event: Event) {
-    console.log((<HTMLInputElement> event.target).value);
+    this.searchText$.next((<HTMLInputElement> event.target).value);
   }
 
   /**
@@ -31,5 +68,13 @@ export class MoviesSearchInputComponent {
    */
   onOutsideComponentClick() {
     this.onInputClear();
+  }
+
+  /**
+   * onDestory angular lifecycle
+   * 
+   */
+  ngOnDestroy(): void {
+    this.destroy$.next();
   }
 }

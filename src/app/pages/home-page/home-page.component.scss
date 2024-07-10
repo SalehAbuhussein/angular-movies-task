@@ -1,3 +1,8 @@
-.movies-section-container:first-of-type {
-  margin-bottom: 64px;
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #282828;
+  padding: 32px;
+  height: calc(100vh - var(--header-height));
 }

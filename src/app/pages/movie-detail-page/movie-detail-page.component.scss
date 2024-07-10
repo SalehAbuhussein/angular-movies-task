@@ -1,0 +1,80 @@
+.movie-detail-page-wrapper {
+  height: 100vh; 
+  position: relative;
+  .movie-content-wrapper {
+    max-width: 500px;
+  }
+
+  .movie-title {
+    margin-bottom: 16px;
+  }
+
+  .movie-date {
+    margin-bottom: 8px;
+  }
+
+  .movie-date-genre-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .movie-overview-wrapper {
+    .overview-title {
+      margin-bottom: 8px;
+    }
+
+    .movie-overview {
+      line-height: 1.5;
+    }
+  }
+
+  .movie-thumbnail-wrapper {
+    width: 200px;
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+  }
+
+  .movie-thumbnail-wrapper{
+    position: relative;
+    app-rating {
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .overall-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .previous-page-button {
+    width: fit-content;
+    display: block;
+    margin-bottom: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(#fff, 0.5);
+    border-radius: 12px;
+
+    img {
+      padding: 10px;
+      transform: rotate(180deg);
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 4px;
+  }
+}

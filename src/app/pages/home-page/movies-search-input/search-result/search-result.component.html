@@ -1,9 +1,11 @@
-<div class="search-result-wrapper">
+@if(searchResults.length > 0) {
+  <div class="search-result-wrapper">
     <ul>
-      <li><a href="#">Search Result 1</a></li>
-      <li><a href="#">Search Result 2</a></li>
-      <li><a href="#">Search Result 3</a></li>
-      <li><a href="#">Search Result 4</a></li>
-      <li><a href="#">Search Result 5</a></li>
+      @for (item of searchResults; track item.id) {
+        <li>
+          <a href="#">{{ item.name }}</a>
+        </li>
+      }
     </ul>
-</div>
+  </div>
+}
